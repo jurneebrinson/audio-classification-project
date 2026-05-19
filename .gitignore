@@ -1,0 +1,9 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+*.egg-info/
+outputs/
+spectrograms/
+data/data_split/
