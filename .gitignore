@@ -4,6 +4,16 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 *.egg-info/
-outputs/
 spectrograms/
 data/data_split/
+
+# Ignore outputs except specific files
+outputs/**
+!outputs/models/
+!outputs/models/best_model.pth
+!outputs/logs/
+!outputs/logs/training_history_20260603_141827.csv
+!outputs/plots/
+!outputs/plots/acc_20260603_141827.png
+!outputs/plots/loss_20260603_141827.png
+!outputs/plots/eval_confusion_matrix.png
