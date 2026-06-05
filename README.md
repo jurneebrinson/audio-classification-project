@@ -2,6 +2,14 @@
 
 This project classifies audio samples using spectrogram images. The current milestone focuses on the dataset package and a runnable notebook that shows the model inputs and targets.
 
+## Project Purpose
+
+The goal of this project is to explore audio classification through the lens of sound organization and creative music production workflows. As someone with interests in DJing and music production, a major challenge in working with large sound libraries is quickly identifying, organizing, and retrieving samples based on their sonic characteristics rather than just file names.
+
+This project treats audio classification as a way to structure and understand sound collections more meaningfully. By converting audio signals into spectrograms and training a CNN to classify them into categories such as kick, snare, hi-hat, bass, pad, and vocal, the model learns patterns that reflect how producers naturally think about and organize sound.
+
+Beyond its technical goals, this system is motivated by practical creative use cases: improving sample discovery, supporting faster workflow during production, and enabling more intelligent tagging and organization of audio assets.
+
 ## Dataset
 
 The repository includes a small example dataset under `data/example_data/` so the milestone notebook can run immediately after cloning the repo. The example dataset contains two spectrogram images per class:
