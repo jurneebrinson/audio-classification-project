@@ -55,6 +55,24 @@ Input spectrograms are resized to:
 
 The network learns visual patterns in spectrogram images, treating audio classification as an image classification problem.
 
+## Install
+
+From the repository root:
+
+```bash
+python -m pip install -e .
+```
+
+## Run the Notebook
+
+Open and run:
+
+```bash
+notebooks/data_demo.ipynb
+```
+
+The notebook loads `data/example_data`, prints the class mapping, fetches one sample, creates a batch with `torch.utils.data.DataLoader`, and visualizes example spectrograms.
+
 ## Results
 
 ### Test Performance
@@ -200,25 +218,15 @@ outputs/
 - Training loss curve
 - Confusion matrix visualization
 
+## Limitations
 
-## Install
+While the model performs well on the current dataset, there are several limitations to consider.
 
-From the repository root:
+First, the dataset size and diversity are relatively constrained, which may limit the model’s ability to generalize to unseen audio sources or more complex real-world sound libraries. The classes are also well-defined and curated, which does not fully reflect the ambiguity often found in real production environments.
 
-```bash
-python -m pip install -e .
-```
+Second, the model relies entirely on spectrogram representations, which may discard some temporal and phase-based information present in raw audio signals. This can make it more difficult to distinguish between acoustically similar classes such as Bass and Pad, where frequency content overlaps significantly.
 
-## Run the Notebook
-
-Open and run:
-
-```bash
-notebooks/data_demo.ipynb
-```
-
-The notebook loads `data/example_data`, prints the class mapping, fetches one sample, creates a batch with `torch.utils.data.DataLoader`, and visualizes example spectrograms.
-
+Finally, the current approach does not incorporate data augmentation or domain adaptation techniques, which could improve robustness to variations in recording conditions, sample length, or noise.
 
 ## Future Improvements
 
