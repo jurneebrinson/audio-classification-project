@@ -18,8 +18,6 @@ Each example is a `.png` spectrogram. The data loader returns:
 - input: a `torch.Tensor` image with shape `(3, 224, 224)`
 - target: a `torch.long` integer label
 
-The full dataset was curated by hand, combining many samples from personal libraries that I have, as well as utilizing samples from [Kaggle's Drum Kit Sound Samples Dataset](https://www.kaggle.com/datasets/anubhavchhabra/drum-kit-sound-samples?resource=download).
-
 ## Dataset Download
 
 The full dataset is hosted in the latest GitHub release:
@@ -27,6 +25,15 @@ The full dataset is hosted in the latest GitHub release:
 https://github.com/jurneebrinson/audio-classification-project/releases/tag/data
 
 To ensure the project runs correctly, download and extract the dataset into the `data/` directory at the root of the repository. The code assumes this exact structure when loading training, validation, and test splits.
+
+### Dataset Creation Process
+
+The dataset was constructed using a combination of:
+
+- Personally collected audio samples from existing sound libraries
+- Publicly available samples from [Kaggle’s Drum Kit Sound Samples Dataset](https://www.kaggle.com/datasets/anubhavchhabra/drum-kit-sound-samples?resource=download)
+
+Audio files were converted into spectrogram images using consistent preprocessing settings to ensure uniform resolution and scaling across all samples. Each spectrogram was manually verified and assigned a class label based on its source audio type.  All outputs are trimmed to two seconds and have a sample rate of 22050 Hz.
 
 ## Model Architecture
 
@@ -74,6 +81,34 @@ The evaluation notebook includes:
 - Example predictions
 - Misclassification analysis
 - Visual inspection of incorrectly classified spectrograms
+
+## Evaluation Metrics
+
+To evaluate model performance, the following metrics were used:
+
+- **Accuracy**: Measures overall classification correctness across all classes.
+- **Precision (macro-averaged)**: Evaluates how many predicted samples for each class were correct.
+- **Recall (macro-averaged)**: Measures how many true samples per class were correctly identified.
+- **F1-score (macro-averaged)**: Harmonic mean of precision and recall, useful for imbalanced class performance.
+- **Confusion Matrix**: Used for analyzing class-wise misclassifications and identifying overlapping audio classes.
+
+Accuracy was used as the primary optimization metric during training, while F1-score and confusion matrices were used for deeper evaluation of model behavior.
+
+## Example Prediction Visualization
+
+To better understand model behavior, individual predictions were visualized by comparing:
+
+- Ground truth label
+- Model predicted label
+- Confidence scores across all classes
+
+This helps interpret how the model distinguishes between visually similar spectrogram patterns.
+
+### Sample Prediction
+
+![Example Prediction](outputs/plots/example_prediction.png)
+
+In this example, the model correctly identifies the audio class with high confidence, while also assigning lower probabilities to acoustically similar classes.
 
 ### Error Analysis
 
@@ -170,6 +205,7 @@ notebooks/data_demo.ipynb
 ```
 
 The notebook loads `data/example_data`, prints the class mapping, fetches one sample, creates a batch with `torch.utils.data.DataLoader`, and visualizes example spectrograms.
+
 
 ## Future Improvements
 
