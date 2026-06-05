@@ -20,6 +20,14 @@ Each example is a `.png` spectrogram. The data loader returns:
 
 The full dataset was curated by hand, combining many samples from personal libraries that I have, as well as utilizing samples from [Kaggle's Drum Kit Sound Samples Dataset](https://www.kaggle.com/datasets/anubhavchhabra/drum-kit-sound-samples?resource=download).
 
+## Dataset Download
+
+The full dataset is hosted in the latest GitHub release:
+
+https://github.com/jurneebrinson/audio-classification-project/releases/tag/data
+
+To ensure the project runs correctly, download and extract the dataset into the `data/` directory at the root of the repository. The code assumes this exact structure when loading training, validation, and test splits.
+
 ## Model Architecture
 
 The project uses a custom CNN implemented in `audio_classification/models/cnn.py`.
