@@ -17,3 +17,4 @@ outputs/**
 !outputs/plots/acc_20260603_141827.png
 !outputs/plots/loss_20260603_141827.png
 !outputs/plots/eval_confusion_matrix.png
+!outputs/plots/example_predictions.png
