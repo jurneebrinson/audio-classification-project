@@ -100,15 +100,12 @@ To better understand model behavior, individual predictions were visualized by c
 
 - Ground truth label
 - Model predicted label
-- Confidence scores across all classes
 
-This helps interpret how the model distinguishes between visually similar spectrogram patterns.
+### Sample Predictions
 
-### Sample Prediction
+![Example Prediction](outputs/plots/example_predictions.png)
 
-![Example Prediction](outputs/plots/example_prediction.png)
-
-In this example, the model correctly identifies the audio class with high confidence, while also assigning lower probabilities to acoustically similar classes.
+In this example, the model correctly identifies the audio classes based on spectrogram representations.
 
 ### Error Analysis
 
@@ -143,6 +140,14 @@ Example checkpoint contents:
     "val_acc": val_acc,
     "val_loss": val_loss,
 }
+```
+
+### Running Training
+
+To train the model from scratch:
+
+```bash
+python -m audio_classification.training.train
 ```
 
 ### Training Curves
