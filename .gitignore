@@ -6,6 +6,7 @@ __pycache__/
 *.egg-info/
 spectrograms/
 data/data_split/
+data/data_split.zip
 
 # Ignore outputs except specific files
 outputs/**
